@@ -7,6 +7,6 @@ The way it works is, you call getBestMoves(callbackFunction), and when the resul
 
 I make the moves by calling game.move() although this is not required.  Making the moves will require chess.js.  To visualize it you need chessboard.js files.
 
-For a working example, just look at http://johnktejik.info/chessapp/
+For a working example, just look at http://johnktejik.info/share/chessapp/
 
 shareeditdeleteflag
