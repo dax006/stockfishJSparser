@@ -4,7 +4,9 @@ parses output from stockfish.js and gets the best move
 
 <h1>Usage:</h1>
 In your HTML:
+
 include this script, stockfishJSparser.js
+
 requires stockfish.js in the folder 'js'.
 
 Call getBestMoves(callbackFunction), Where callbackFunction is the name of any function you created.  You can name it whatever you want.  When Stockfish finishes its analysis, that function will fire. 
