@@ -15,22 +15,17 @@ The function accepts one paramter, 'bestmoves'.  Bestmoves is an array of string
 The strings are moves in the form of 'a3-a4'.  There is no extended notation such as +, !, ?, or x (as in a3xb4).
 
 <h2> Example </h2>
-
+<pre>
 ><script src='js/parseStockfish.js'></script>
-
 ><script>
-
 >
 >function callbackFunction(bestmoves){
-
 >	console.log(bestmoves[0]);
-
 >}
-
 >
 >getBestMoves(callbackFunction);  //must pass in the name of a function that will be the callback when moves are available
 ></script>
-
+</pre>
 For a working example, just look at http://johnktejik.info/share/chessapp/
 
 shareeditdeleteflag
