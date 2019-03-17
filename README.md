@@ -26,6 +26,6 @@ function callbackFunction(bestmoves){
 getBestMoves(callbackFunction);  //must pass in the name of a function that will be the callback when moves are available
 </script>
 </pre>
-For a working example, just look at http://johnktejik.info/share/chessapp/
+To see it in use, look at http://johnktejik.info/share/chessapp/
 
 shareeditdeleteflag
