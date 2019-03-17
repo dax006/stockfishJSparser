@@ -1,6 +1,9 @@
 //GLOBALS
+// YOU CAN EDIT THESE or change them in your code
 var numBESTMOVES = 1;  //edit to whatever you want.
-var DIFFICULTY = 20;  //0-20
+var DIFFICULTY = 20;
+//
+
 var arr = [];
 var callbackHandler;  //stores function name for callback for getBestMoves
 
@@ -27,7 +30,7 @@ stockfish.postMessage('ucinewgame');
 //################################################################## functions start #################################################################################//
 
 
-function topMoves(arr){  //get the top X moves, X = numMoves
+function topMoves(arr,numMoves){  //get the top X moves, X = numMoves
 	var bestlines = [];  //initialize array;
 	var alen = arr.length;
 	
@@ -39,7 +42,7 @@ function topMoves(arr){  //get the top X moves, X = numMoves
 		words = line.split(" ");  //get words in the line
 		if(words[1] == "depth"){  //look for 'info depth'
 				//get numMoves lines of engine output
-				for(j = 0; j < numBESTMOVES; j++){
+				for(j = 0; j < numMoves; j++){
 					bestlines.push(arr[i-j]);  //add line to array
 				}
 				break;  //exit loop
@@ -49,12 +52,12 @@ function topMoves(arr){  //get the top X moves, X = numMoves
 }
 
 
-function parseMoves(arr){			//loop backwards through arr to find best numMoves moves
+function parseMoves(arr,numMoves){			//loop backwards through arr to find best numMoves moves
 
 			var i, j, line;
 			var bestmoves = [];  //initialize array;
 
-			var bestlines = topMoves(arr,numBESTMOVES);
+			var bestlines = topMoves(arr,numMoves);
 
 			//parse the bestlines to find the best moves
 			bestlines.forEach(function(line){  //search best lines for the best single move
@@ -69,7 +72,7 @@ function parseMoves(arr){			//loop backwards through arr to find best numMoves m
 	return bestmoves;  //these are ordered worst to best
 }
 
-function getBestMoves1(str){  //stores all stockfish data, when the final line (bestmove) is found, start the analysis
+function getBestMoves1(str, numMoves = numBESTMOVES){  //stores all stockfish data, when the final line (bestmove) is found, start the analysis
 	
 	arr.push(str);  //store everything
 	var words = str.split(" ");
@@ -80,7 +83,7 @@ function getBestMoves1(str){  //stores all stockfish data, when the final line (
 		if(numMoves == 1){
 			var bestmoves=[words[1]];
 		}else{
-			var bestmoves = parseMoves(arr,numBESTMOVES);
+			var bestmoves = parseMoves(arr,numMoves);
 			bestmoves.reverse();  //from best to worst
 		}
 		arr = [];  //empty array
@@ -107,9 +110,6 @@ function s2cbjs(bestmoves){  //converts from Stockfish To ChessBoardJS notation 
 }
 
 function getBestMoves(handler){  //handler is the function that is called to return the best moves
-
-	if(typeof DIFFICULTY == 'undefined') DIFFICULTY = 20;  //0 = 1200 ELO. 25=2500 ELO.)
-
 
 		var fen = game.fen();
 		stockfish.postMessage('position fen '+fen);  //set board for stockfish to analyse
