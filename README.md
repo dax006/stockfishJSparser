@@ -11,7 +11,8 @@ requires stockfish.js in the folder 'js'.
 
 Call getBestMoves(callbackFunction), Where callbackFunction is the name of any function you created.  You can name it whatever you want.  When Stockfish finishes its analysis, that function will fire. 
 
-The function accepts one paramter, 'bestmoves'.  Bestmoves is an array of strings.  The strings are moves in the form of 'a3-a4'.  There is no extended notation such as +, !, ?, or x (as in a3xb4).
+The function accepts one paramter, 'bestmoves'.  Bestmoves is an array of strings.  The number of best moves returned is a variable set at the top of stockfishJSparser.js.  The default is 1.  Feel free to modifiy it. 
+The strings are moves in the form of 'a3-a4'.  There is no extended notation such as +, !, ?, or x (as in a3xb4).
 
 Here is an example of the code you write.
 
