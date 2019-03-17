@@ -17,11 +17,16 @@ The strings are moves in the form of 'a3-a4'.  There is no extended notation suc
 <h2> Example </h2>
 
 ><script src='js/parseStockfish.js'></script>
+
 ><script>
+
 >
 >function callbackFunction(bestmoves){
+
 >	console.log(bestmoves[0]);
+
 >}
+
 >
 >getBestMoves(callbackFunction);  //must pass in the name of a function that will be the callback when moves are available
 ></script>
