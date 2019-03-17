@@ -2,8 +2,7 @@
 parses output from stockfish.js and gets the best move
 
 
-
-**Useage:**
+<h1>Usage:</h1>
 In your HTML:
 include this script, stockfishJSparser.js
 requires stockfish.js in the folder 'js'.
