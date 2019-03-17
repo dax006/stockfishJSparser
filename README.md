@@ -16,12 +16,15 @@ The strings are moves in the form of 'a3-a4'.  There is no extended notation suc
 
 Here is an example of the code you write.
 
+<script src='js/parseStockfish.js'></script>
+<script>
+
 >function callbackFunction(bestmoves){
 >	console.log(bestmoves[0]);
 >}
 
 >getBestMoves(callbackFunction);  //must pass in the name of a function that will be the callback when moves are available
-
+</script>
 
 For a working example, just look at http://johnktejik.info/share/chessapp/
 
